@@ -51,7 +51,7 @@ class Tracker
 
         $visit = Visit::create($data);
 
-        if(config('visitortracker.geoip_on')) {
+        if (config('visitortracker.geoip_on')) {
             GetGeoipData::dispatch($visit);
         }
 
@@ -131,7 +131,7 @@ class Tracker
      * @param string $agent User agent
      * @return array
      */
-    protected static function getVisitData($agent)
+    public static function getVisitData($agent)
     {
         $dd = new DeviceDetector($agent);
         $dd->parse();
