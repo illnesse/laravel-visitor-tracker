@@ -85,6 +85,7 @@ class VisitStats
         Route::get('/stats/users', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@users')->name('visitortracker.users');
         Route::get('/stats/urls', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@urls')->name('visitortracker.urls');
         Route::get('/stats/referrers', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@referrers')->name('visitortracker.referrers');
+        Route::get('/stats/users_by_country', '\Voerro\Laravel\VisitorTracker\Controllers\StatisticsController@users_by_country')->name('visitortracker.users_by_country');
     }
 
     /**

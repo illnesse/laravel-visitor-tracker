@@ -175,4 +175,9 @@ class StatisticsController
     {
         return $this->groupedVisits('referrers', 'referer', 'Referrers');
     }
+
+    public function users_by_country()
+    {
+        return $this->groupedVisits('users_by_country', ['user_id', 'country_code'], 'Users by Country');
+    }
 }
