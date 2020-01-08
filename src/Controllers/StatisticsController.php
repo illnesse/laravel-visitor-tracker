@@ -170,4 +170,9 @@ class StatisticsController
     {
         return $this->groupedVisits('urls', 'url', 'URLs');
     }
+
+    public function referrers()
+    {
+        return $this->groupedVisits('referrers', 'referer', 'Referrers');
+    }
 }
