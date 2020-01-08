@@ -55,7 +55,7 @@ class Tracker
             GetGeoipData::dispatch($visit);
         }
 
-        return $visit;
+        return $data;
     }
 
     /**
@@ -131,7 +131,7 @@ class Tracker
      * @param string $agent User agent
      * @return array
      */
-    public static function getVisitData($agent)
+    protected static function getVisitData($agent)
     {
         $dd = new DeviceDetector($agent);
         $dd->parse();
