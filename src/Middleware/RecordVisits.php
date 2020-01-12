@@ -16,7 +16,7 @@ class RecordVisits
      */
     public function handle($request, Closure $next)
     {
-//        $data = Tracker::recordVisit();
-        return $next($request);//$request->merge(['visitData' => $data]));
+        $data = Tracker::recordVisit();
+        return $next($request)->with('visitData', $data);
     }
 }
