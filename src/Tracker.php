@@ -179,7 +179,7 @@ class Tracker
 
         return [
             'user_id' => auth()->check() ? auth()->id() : null,
-            'ip' => request()->ip(),
+            'ip' => isset($_SERVER["HTTP_CF_CONNECTING_IP"]) ? $_SERVER["HTTP_CF_CONNECTING_IP"] : $_SERVER['REMOTE_ADDR'], //request()->ip(),
             'method' => request()->method(),
             'url' => request()->fullUrl(),
             'referer' => request()->headers->get('referer'),
