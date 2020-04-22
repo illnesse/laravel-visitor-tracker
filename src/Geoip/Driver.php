@@ -30,7 +30,6 @@ abstract class Driver
         }
         catch(Exception $e)
         {
-            $this->errors[] = $e;
             return null;
         }
 
