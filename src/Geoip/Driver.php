@@ -24,7 +24,15 @@ abstract class Driver
     {
         $client = new Client();
 
-        $response = $client->get($this->getEndpoint($visit->ip));
+        try
+        {
+            $response = $client->get($this->getEndpoint($visit->ip));
+        }
+        catch(Exception $e)
+        {
+            $this->errors[] = $e;
+            return null;
+        }
 
         if ($response->getStatusCode() == 200) {
             $this->data = json_decode($response->getBody()->getContents());
