@@ -35,7 +35,7 @@ class Tracker
             return;
         }
 
-        $data = self::getVisitData($agent ?: request()->userAgent());
+        $data = self::getVisitData($agent ?? request()->userAgent() ?? 'null');
 
         // Determine if the request is a login attempt
         if (request()->route()
