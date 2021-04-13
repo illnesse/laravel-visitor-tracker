@@ -4,9 +4,9 @@ namespace Voerro\Laravel\VisitorTracker\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Visit extends Model
+class VisitStaff extends Model
 {
-    protected $table = 'visitortracker_visits';
+    protected $table = 'visitortracker_visits_staff';
 
     protected $guarded = [];
 
