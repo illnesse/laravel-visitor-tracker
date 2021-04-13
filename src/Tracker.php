@@ -6,6 +6,7 @@ use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\OperatingSystem;
 use Voerro\Laravel\VisitorTracker\Models\Visit;
 use Voerro\Laravel\VisitorTracker\Jobs\GetGeoipData;
+use Voerro\Laravel\VisitorTracker\Models\VisitStaff;
 
 class Tracker
 {
@@ -27,6 +28,7 @@ class Tracker
      */
     public static function recordVisit($agent = null)
     {
+        /*
         if (!self::shouldTrackUser()) {
             return;
         }
@@ -34,6 +36,7 @@ class Tracker
         if (!self::shouldTrackAuthenticatedUser()) {
             return;
         }
+        */
 
         $data = self::getVisitData($agent ?? request()->userAgent() ?? 'null');
 
@@ -49,7 +52,8 @@ class Tracker
             return;
         }
 
-        $visit = Visit::create($data);
+        if (checkUserRole("fls")) $visit = VisitStaff::create($data);
+        else $visit = Visit::create($data);
 
         if (config('visitortracker.geoip_on')) {
             GetGeoipData::dispatch($visit);
