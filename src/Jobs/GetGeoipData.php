@@ -26,6 +26,7 @@ class GetGeoipData implements ShouldQueue
     public function __construct(Visit $visit)
     {
         $this->visit = $visit;
+        $this->onQueue('geoip');
     }
 
     /**
